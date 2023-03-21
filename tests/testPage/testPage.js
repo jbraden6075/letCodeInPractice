@@ -1,15 +1,16 @@
 import { ClientFunction, Selector } from 'testcafe'
+import editorPageRepo from '../../pom/editPageRepo'
+import testPageRepo from '../../pom/testPageRepo'
 
 fixture `letCodeIn - test`
     .page `letcode.in/test`
 
 test('User Can Navigate To EditPage', async t => {
-    await t
-        .click(Selector('a').withText('Edit'))
+    await testPageRepo.navigateToEditPage()
 
     const url = ClientFunction(() => window.location.href)
 
     await t
         .expect(url()).eql('https://letcode.in/edit')
-        .expect(Selector('h1').withText('Input').visible).ok()
+        .expect(editorPageRepo.h1Input.visible).ok()
 })

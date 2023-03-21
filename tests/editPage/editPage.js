@@ -1,48 +1,50 @@
 import { Selector } from 'testcafe'
+import editPageRepo from '../../pom/editPageRepo'
 
 fixture `letCodeIn - edit`
     .page `letcode.in/edit`
 
 test('User Can Input Into Full Name Text Field', async t => {
-    await t
-        .typeText(Selector('#fullName'), 'Justin Braden', {replace: true, paste: true})
+    const fullNameText = 'Bob Bobbers'
+
+    await editPageRepo.typeTextIntoFullNameField(fullNameText)
 
     function setFullNameValue() {
-        `document.getElementById('fullName').setAttribute('value', 'Justin Braden')`
+        `document.getElementById('fullName').setAttribute('value', fullNameText)`
     }
 
     setFullNameValue()
 
     await t
-        .expect(Selector('#fullName').value).eql('Justin Braden')
+        .expect(editPageRepo.txtFullName.value).eql(fullNameText)
 })
 
 test('User Can Append Text To Text Field', async t => {
-    await t
-        .click(Selector('#join'))
-        .selectText(Selector('#join'), 9,9)
-        .typeText(Selector('#join'), ' appended text.')
+    const appendedText = ' appended text.'
+    const fullText = 'I am good appended text.'
+
+    await editPageRepo.appendTextToAppendField(appendedText)
 
     function setAppendValue() {
-        `document.getElementById('join').setAttribute('value', 'I am good appended text.')`
+        `document.getElementById('join').setAttribute('value', fullText')`
     }
 
     setAppendValue()
 
     await t
-        .expect(Selector('#join').value).eql('I am good appended text.')
+        .expect(editPageRepo.txtAppendText.value).eql(fullText)
 })
 
 test('TestCafe Can Read What Is In a Text Field', async t => {
+    const expectedText = 'ortonikc'
+
     await t
-        .expect(Selector('#getMe').value).eql('ortonikc')
+        .expect(editPageRepo.txtGetText.value).eql(expectedText)
 })
 
 test('User Can Delete Text From Text Field', async t => {
-    await t
-        .selectText(Selector('#clearMe'), 0, 18)
-        .pressKey('delete')
-
+    await editPageRepo.deleteTextFromField(editPageRepo.txtDeleteText)
+    
     function setClearValue() {
         `document.getElementById('clearMe').setAttribute('value', '')`
     }
@@ -50,13 +52,13 @@ test('User Can Delete Text From Text Field', async t => {
     setClearValue()
 
     await t
-        .expect(Selector('#clearMe').value).eql('')
+        .expect(editPageRepo.txtDeleteText.value).eql('')
 })
 
 test('User Cannot Edit a Disabled Field', async t => {
     let disabledFound = 0
 
-    if(Selector('#noEdit').withAttribute('disabled')) {
+    if(editPageRepo.txtDisabled.hasAttribute('disabled')) {
         disabledFound = 1
     }
 
@@ -67,7 +69,7 @@ test('User Cannot Edit a Disabled Field', async t => {
 test('User Cannot Edit a Readonly Field', async t =>{
     let readonlyFound = 0
 
-    if(Selector('#dontwrite').withAttribute('readonly')) {
+    if(editPageRepo.txtReadonly.hasAttribute('readonly')) {
         readonlyFound = 1
     }
 

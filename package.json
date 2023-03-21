@@ -1,0 +1,27 @@
+{
+  "name": "letcodein",
+  "version": "1.0.0",
+  "description": "Staying up-to-date with automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N/A.git"
+  },
+  "keywords": [
+    "automation",
+    "testcafe",
+    "javascript"
+  ],
+  "author": "Justin Braden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N/A/issues"
+  },
+  "homepage": "https://github.com/N/A#readme",
+  "devDependencies": {
+    "testcafe": "^2.4.0"
+  }
+}

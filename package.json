@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/N/A.git"
+    "url": "git+https://github.com/jbraden6075/letCodeInPractice.git"
   },
   "keywords": [
     "automation",
@@ -18,9 +18,9 @@
   "author": "Justin Braden",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/N/A/issues"
+    "url": "https://github.com/jbraden6075/letCodeInPractice/issues"
   },
-  "homepage": "https://github.com/N/A#readme",
+  "homepage": "https://github.com/jbraden6075/letCodeInPractice#readme",
   "devDependencies": {
     "testcafe": "^2.4.0"
   }

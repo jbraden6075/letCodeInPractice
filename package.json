@@ -4,7 +4,7 @@
   "description": "Staying up-to-date with automation",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome"
+    "full-suite": "testcafe"
   },
   "repository": {
     "type": "git",
@@ -12,11 +12,12 @@
   },
   "keywords": [
     "automation",
-    "testcafe",
-    "javascript"
+    "javascript",
+    "letcodein",
+    "testcafe"
   ],
-  "author": "Justin Braden",
-  "license": "ISC",
+  "author": "Jbraden6075",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jbraden6075/letCodeInPractice/issues"
   },

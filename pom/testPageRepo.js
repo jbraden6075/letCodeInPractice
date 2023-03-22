@@ -4,7 +4,7 @@ import { Selector, t} from 'testcafe'
 class testPageRepo {
     constructor() {
         this.btnEdit = Selector('a').withText('Edit')
-        this.btnButton = Selector('a').withText('Button')
+        this.btnButton = Selector('a').withText('Click')
     }
 
     async navigateToEditPage() {

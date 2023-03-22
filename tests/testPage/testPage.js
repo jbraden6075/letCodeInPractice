@@ -1,4 +1,5 @@
 import { ClientFunction, Selector } from 'testcafe'
+import buttonPageRepo from '../../pom/buttonPageRepo'
 import editorPageRepo from '../../pom/editPageRepo'
 import testPageRepo from '../../pom/testPageRepo'
 

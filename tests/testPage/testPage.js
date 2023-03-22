@@ -19,7 +19,7 @@ test('User Can Navigate To Edit Page', async t => {
 })
 
 test('User Can Navigate To Button Page', async t => {
-const buttonPageHref = 'https://letcode.in/button'
+const buttonPageHref = 'https://letcode.in/buttons'
     
     await testPageRepo.navigateToButtonPage()
 

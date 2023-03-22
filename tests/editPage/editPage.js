@@ -1,4 +1,3 @@
-import { Selector } from 'testcafe'
 import editPageRepo from '../../pom/editPageRepo'
 
 fixture `letCodeIn - edit`

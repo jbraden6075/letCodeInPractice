@@ -43,14 +43,18 @@ test('JavaScript Can Return the Coordinates Of an Element', async t => {
         .expect(x).eql('64')
 })
 
-// TODO: Figure out how to parse the RGB and convert it to Hex
 test('The Background Color Of Button Will Be Correct', async t => {
-    let buttonColorRGB = buttonPageRepo.btnColor.getStyleProperty('background-color')
-    let buttonColorHex = (c) => {const hex = c.toString(16)
-                                return hex.length == 1 ? "0" + hex : hex
-                        }
+    const buttonColorRGB = await buttonPageRepo.btnColor.getStyleProperty('background-color')
 
+    function rgbToHex(rgb) {
+        rgb = rgb.replace(/[^\d,]/g,"").split(",")
+
+        let hex = '#'+((1<<24)+(+rgb[0]<<16)+(+rgb[1]<<8)+ +rgb[2]).toString(16).slice(1)
+        return hex
+    }
+    
+    const buttonColorToHex = rgbToHex(buttonColorRGB)
 
     await t
-        .expect(buttonColorHex).eql('#8a4d76')
+        .expect(buttonColorToHex).eql('#8a4d76')
 })

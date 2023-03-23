@@ -1,0 +1,6 @@
+To mass delete local branches:
+
+1) Make sure you have 'main' checked out
+2) In a terminal, run:
+    git branch | grep [a-z] | xargs git branch -D
+3) Profit

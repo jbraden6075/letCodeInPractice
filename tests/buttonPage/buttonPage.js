@@ -64,3 +64,14 @@ test('The Background Color Of Button Will Be Correct', async t => {
     await t
         .expect(buttonColorToHex).eql('#8a4d76')
 })
+
+test('JavaScript Can Return the Size Of an Element', async t => {
+    const getElementWidth = ClientFunction(() => document.getElementById('property').offsetWidth)
+    const getElementHeight = ClientFunction(() => document.getElementById('property').offsetHeight)
+
+    let width = await getElementWidth()
+    width = JSON.stringify(width)
+
+    let height = await getElementHeight()
+    height = JSON.stringify(height)
+})

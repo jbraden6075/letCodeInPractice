@@ -6,6 +6,7 @@ class buttonPageRepo {
         this.btnGotoHome = Selector('#home')
         this.btnFindLocation = Selector('#position')
         this.btnColor = Selector('#color')
+        this.btnDisabled = Selector('isDisabled')
         this.h1Button = Selector('h1').withText('Button')
     }
 

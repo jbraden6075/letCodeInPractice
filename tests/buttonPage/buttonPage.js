@@ -75,3 +75,14 @@ test('JavaScript Can Return the Size Of an Element', async t => {
     let height = await getElementHeight()
     height = JSON.stringify(height)
 })
+
+test('User Can Not Edit a Disabled Field', async t => {
+    let disabledFound = 0
+
+    if(buttonPageRepo.btnDisabled.hasAttribute('disabled')) {
+        disabledFound = 1
+    }
+
+    await t
+        .expect(disabledFound).eql(1)
+})

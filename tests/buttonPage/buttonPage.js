@@ -86,3 +86,17 @@ test('User Can Not Edit a Disabled Field', async t => {
     await t
         .expect(disabledFound).eql(1)
 })
+
+test('User Can Long Hold On a Button', async t => {
+    await t
+        .dispatchEvent(buttonPageRepo.btnHold, 'mousedown')
+        .wait(3000)
+
+    if(!buttonPageRepo.btnHold.exists) {
+        await t
+            .dispatchEvent(buttonPageRepo.btnLongPress, 'mouseup')
+    }
+
+    await t
+        .expect(buttonPageRepo.btnLongPress.visible).ok()
+})

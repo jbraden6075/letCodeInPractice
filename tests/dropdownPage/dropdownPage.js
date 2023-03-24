@@ -14,7 +14,7 @@ test('User Can Select a Single Option from Dropdown', async t => {
         .expect(optionNotification.visible).ok()
 })
 
-test('User Can Select Multiple Options from Dropdown', async t => {
+test('User Can Select Multiple Options from Multi-Select', async t => {
     const option1 = Selector('#superheros').find('option').withText('The Avengers')
     const option2 = Selector('#superheros').find('option').withText('Batman')
 

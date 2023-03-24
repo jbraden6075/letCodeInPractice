@@ -1,4 +1,4 @@
-import { ClientFunction, Selector } from 'testcafe'
+import { ClientFunction } from 'testcafe'
 import buttonPageRepo from '../../pom/buttonPageRepo'
 
 fixture `letCodeIn - button`

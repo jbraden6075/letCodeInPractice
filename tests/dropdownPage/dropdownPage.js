@@ -24,3 +24,4 @@ test('User Can Select Multiple Options from Multi-Select', async t => {
         .expect(option1.selected).ok()
         .expect(option2.selected).ok()
 })
+

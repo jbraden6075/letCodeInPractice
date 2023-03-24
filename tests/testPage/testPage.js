@@ -1,5 +1,6 @@
-import { ClientFunction, Selector } from 'testcafe'
+import { ClientFunction } from 'testcafe'
 import buttonPageRepo from '../../pom/buttonPageRepo'
+import dropdownPageRepo from '../../pom/dropdownPageRepo'
 import editorPageRepo from '../../pom/editPageRepo'
 import testPageRepo from '../../pom/testPageRepo'
 
@@ -19,7 +20,7 @@ test('User Can Navigate To Edit Page', async t => {
 })
 
 test('User Can Navigate To Button Page', async t => {
-const buttonPageHref = 'https://letcode.in/buttons'
+    const buttonPageHref = 'https://letcode.in/buttons'
     
     await testPageRepo.navigateToButtonPage()
 
@@ -28,4 +29,16 @@ const buttonPageHref = 'https://letcode.in/buttons'
     await t
         .expect(url()).eql(buttonPageHref)
         .expect(buttonPageRepo.h1Button.visible).ok()
+})
+
+test('User Can Navigate To Dropdown Page', async t => {
+    const dropdownPageHref = 'https://letcode.in/dropdowns'
+
+    await testPageRepo.navigateToDropdownPage()
+
+    const url = ClientFunction(() => window.location.href)
+
+    await t
+        .expect(url()).eql(dropdownPageHref)
+        .expect(dropdownPageRepo.h1Dropdown.visible).ok()
 })

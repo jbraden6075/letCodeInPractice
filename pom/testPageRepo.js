@@ -5,6 +5,7 @@ class testPageRepo {
     constructor() {
         this.btnEdit = Selector('a').withText('Edit')
         this.btnButton = Selector('a').withText('Click')
+        this.btnDropdown = Selector('a').withText('Drop-Down')
     }
 
     async navigateToEditPage() {
@@ -15,6 +16,11 @@ class testPageRepo {
     async navigateToButtonPage() {
         await t
             .click(this.btnButton)
+    }
+
+    async navigateToDropdownPage() {
+        await t
+            .click(this.btnDropdown)
     }
 }
 

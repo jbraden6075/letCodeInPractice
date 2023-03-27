@@ -6,6 +6,7 @@ class testPageRepo {
         this.btnEdit = Selector('a').withText('Edit')
         this.btnButton = Selector('a').withText('Click')
         this.btnDropdown = Selector('a').withText('Drop-Down')
+        this.btnAlert = Selector('a').withText('Dialog')
     }
 
     async navigateToEditPage() {
@@ -21,6 +22,11 @@ class testPageRepo {
     async navigateToDropdownPage() {
         await t
             .click(this.btnDropdown)
+    }
+
+    async navigateToAlertPage() {
+        await t
+            .click(this.btnAlert)
     }
 }
 

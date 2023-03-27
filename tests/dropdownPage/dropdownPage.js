@@ -45,3 +45,16 @@ test.skip('Print All Options In Dropdown', async t => {
         .click(dropdownOptions[i-1])
         .expect(optionNotification.visible).ok()
 })
+
+test('User Can Select Option Via Value', async t => {
+    await t
+        .click(dropdownPageRepo.selectCountry)
+        .click(dropdownPageRepo.selectCountry.child('option').withAttribute('value', 'India'))
+
+    const countryValue = dropdownPageRepo.selectCountry.value
+
+    await t
+        .expect(countryValue).eql('India')
+
+    console.log(await countryValue)
+})

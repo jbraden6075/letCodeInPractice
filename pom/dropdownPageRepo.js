@@ -7,6 +7,7 @@ class dropdownPageRepo {
         this.selectFruits = Selector('#fruits')
         this.selectSuperHeroes = Selector('#superheros')
         this.selectLanguages = Selector('#lang')
+        this.selectCountry = Selector('#country')
     }
 
     async selectOption(dropdown, option) {

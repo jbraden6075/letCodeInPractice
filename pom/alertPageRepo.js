@@ -4,6 +4,7 @@ class alertPageRepo {
     constructor() {
         this.h1Alert = Selector('h1').withText('Alert')
         this.btnSimpleAlert = Selector('#accept')
+        this.btnConfirmAlert = Selector('#confirm')
     }
 }
 

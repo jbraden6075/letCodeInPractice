@@ -8,5 +8,21 @@ test('TestCafe Can handle Alert Dialogs', async t => {
     await t
         .setNativeDialogHandler(() => true)
         .click(alertPageRepo.btnSimpleAlert)
-        .takeScreenshot({ path: "./artifacts/screenshots", fullPage: true })
+})
+
+test('TestCafe Can Get Dialog History', async t => {
+    await t
+        .setNativeDialogHandler((type) => {
+            if(type === 'confirm')
+                return true
+        })
+
+        .click(alertPageRepo.btnConfirmAlert)
+
+    const dialogs = await t.getNativeDialogHistory()
+
+    console.log(dialogs[0])
+
+    await t
+        .expect(dialogs[0].type).eql('confirm')
 })

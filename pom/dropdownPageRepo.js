@@ -6,11 +6,12 @@ class dropdownPageRepo {
         this.h1Dropdown = Selector('h1').withText('Dropdown')
         this.selectFruits = Selector('#fruits')
         this.selectSuperHeroes = Selector('#superheros')
+        this.selectLanguages = Selector('#lang')
     }
 
-    async selectOption(option) {
+    async selectOption(dropdown, option) {
         await t
-            .click(this.selectFruits)
+            .click(dropdown)
             .click(Selector('option').withText(option))
     }
 

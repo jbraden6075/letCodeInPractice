@@ -1,4 +1,4 @@
-import { Selector } from 'testcafe'
+import { ClientFunction, Selector } from 'testcafe'
 import dropdownPageRepo from '../../pom/dropdownPageRepo'
 
 
@@ -6,9 +6,10 @@ fixture `letCodeIn - dropdown`
     .page `https://letcode.in/dropdowns`
 
 test('User Can Select a Single Option from Dropdown', async t => {
+    const fruit = 'Apple'
     const optionNotification = Selector('p').withText('You have selected Apple')
 
-    await dropdownPageRepo.selectOption('Apple')
+    await dropdownPageRepo.selectOption(dropdownPageRepo.selectFruits, fruit)
 
     await t
         .expect(optionNotification.visible).ok()
@@ -25,3 +26,22 @@ test('User Can Select Multiple Options from Multi-Select', async t => {
         .expect(option2.selected).ok()
 })
 
+// TODO: Figure this out
+test.skip('Print All Options In Dropdown', async t => {
+    let i = 0
+    let dropdownOptions = await ClientFunction(() => {
+        document.getElementById('lang')
+
+        for(i; i < dropdownOptions.options.length; i++) {
+            console.log("I'm in the for loop")
+        }
+    })
+
+    const optionNotification = Selector('p').withText('You have selected C#')
+
+    dropdownOptions()
+
+    await t
+        .click(dropdownOptions[i-1])
+        .expect(optionNotification.visible).ok()
+})

@@ -1,4 +1,5 @@
 import { ClientFunction } from 'testcafe'
+import alertPageRepo from '../../pom/alertPageRepo'
 import buttonPageRepo from '../../pom/buttonPageRepo'
 import dropdownPageRepo from '../../pom/dropdownPageRepo'
 import editorPageRepo from '../../pom/editPageRepo'
@@ -41,4 +42,16 @@ test('User Can Navigate To Dropdown Page', async t => {
     await t
         .expect(url()).eql(dropdownPageHref)
         .expect(dropdownPageRepo.h1Dropdown.visible).ok()
+})
+
+test('User Can Navigate To Alert Page', async t => {
+    const alertPageHref = 'https://letcode.in/alert'
+
+    await testPageRepo.navigateToAlertPage()
+
+    const url = ClientFunction(() => window.location.href)
+
+    await t
+        .expect(url()).eql(alertPageHref)
+        .expect(alertPageRepo.h1Alert.visible).ok()
 })

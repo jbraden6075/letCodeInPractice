@@ -8,6 +8,7 @@ class testPageRepo {
         this.btnDropdown = Selector('a').withText('Drop-Down')
         this.btnAlert = Selector('a').withText('Dialog')
         this.btnFrame = Selector('a').withText('Inner HTML')
+        this.btnRadio = Selector('a').withText('Toggle')
     }
 
     async navigateToEditPage() {
@@ -33,6 +34,11 @@ class testPageRepo {
     async navigateToFramePage() {
         await t
             .click(this.btnFrame)
+    }
+
+    async navigateToRadioPage() {
+        await t
+            .click(this.btnRadio)
     }
 }
 

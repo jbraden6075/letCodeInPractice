@@ -41,3 +41,10 @@ test('User Can Populate a Prompt Dialog', async t => {
         .click(alertPageRepo.btnPromptAlert)
         .expect(alertPageRepo.notifPromptAlert.innerText).eql('Your name is: Bob Bobbers')
 })
+
+test('User Can Close a Modern Alert', async t => {
+    await t
+        .click(alertPageRepo.btnModernAlert)
+        .click(alertPageRepo.btnCloseModernAlert)
+        .expect(alertPageRepo.btnCloseModernAlert.visible).notOk()
+})

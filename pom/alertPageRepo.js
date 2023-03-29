@@ -7,6 +7,8 @@ class alertPageRepo {
         this.btnConfirmAlert = Selector('#confirm')
         this.btnPromptAlert = Selector('#prompt')
         this.notifPromptAlert = Selector('#myName')
+        this.btnModernAlert = Selector('#modern')
+        this.btnCloseModernAlert = Selector('button').withAttribute('aria-label', 'close')
     }
 }
 

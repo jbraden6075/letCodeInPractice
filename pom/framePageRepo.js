@@ -15,7 +15,6 @@ class framePageRepo {
     async switchToIFrame(iFrame) {
         await t
             .switchToIframe(this.iframeFirst)
-            .wait(1000)
     }
 
     async populateNameFields(firstName, lastName) {

@@ -3,6 +3,7 @@ import alertPageRepo from '../../pom/alertPageRepo'
 import buttonPageRepo from '../../pom/buttonPageRepo'
 import dropdownPageRepo from '../../pom/dropdownPageRepo'
 import editorPageRepo from '../../pom/editPageRepo'
+import framePageRepo from '../../pom/framePageRepo'
 import testPageRepo from '../../pom/testPageRepo'
 
 fixture `letCodeIn - test`
@@ -54,4 +55,16 @@ test('User Can Navigate To Alert Page', async t => {
     await t
         .expect(url()).eql(alertPageHref)
         .expect(alertPageRepo.h1Alert.visible).ok()
+})
+
+test('User Can Navigate To Frame Page', async t => {
+    const framePageHref = 'https://letcode.in/frame'
+
+    await testPageRepo.navigateToFramePage()
+
+    const url = ClientFunction(() => window.location.href)
+
+    await t
+        .expect(url()).eql(framePageHref)
+        .expect(framePageRepo.h1Frame.visible).ok()
 })

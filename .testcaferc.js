@@ -13,4 +13,5 @@ module.exports = {
         fullPage: true,
     },
     skipJsErrors: true,
+    selectorTimeout: 5000
 }

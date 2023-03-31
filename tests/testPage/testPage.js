@@ -4,7 +4,7 @@ import buttonPageRepo from '../../pom/buttonPageRepo'
 import dropdownPageRepo from '../../pom/dropdownPageRepo'
 import editorPageRepo from '../../pom/editPageRepo'
 import framePageRepo from '../../pom/framePageRepo'
-import radioPageRepo from '../../pom/radioPageRepo'
+import radioAndCheckboxPageRepo from '../../pom/radioAndCheckboxPageRepo'
 import testPageRepo from '../../pom/testPageRepo'
 
 fixture `letCodeIn - test`
@@ -71,13 +71,13 @@ test('User Can Navigate To Frame Page', async t => {
 })
 
 test('User Can Navigate To Radio Page', async t => {
-    const radioPageHref = 'https://letcode.in/radio'
+    const radioAndCheckboxPageHref = 'https://letcode.in/radio'
 
-    await testPageRepo.navigateToRadioPage()
+    await testPageRepo.navigateToRadioAndCheckboxPage()
 
     const url = ClientFunction(() => window.location.href)
 
     await t
-        .expect(url()).eql(radioPageHref)
-        .expect(radioPageRepo.h1RadioAndCheckBox.visible).ok()
+        .expect(url()).eql(radioAndCheckboxPageHref)
+        .expect(radioAndCheckboxPageRepo.h1RadioAndCheckBox.visible).ok()
 })

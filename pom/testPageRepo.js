@@ -36,7 +36,7 @@ class testPageRepo {
             .click(this.btnFrame)
     }
 
-    async navigateToRadioPage() {
+    async navigateToRadioAndCheckboxPage() {
         await t
             .click(this.btnRadio)
     }

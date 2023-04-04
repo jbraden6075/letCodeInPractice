@@ -6,6 +6,7 @@ import editorPageRepo from '../../pom/editPageRepo'
 import framePageRepo from '../../pom/framePageRepo'
 import radioAndCheckboxPageRepo from '../../pom/radioAndCheckboxPageRepo'
 import testPageRepo from '../../pom/testPageRepo'
+import windowsPageRepo from '../../pom/windowsPageRepo'
 
 fixture `letCodeIn - test`
     .page `letcode.in/test`
@@ -80,4 +81,16 @@ test('User Can Navigate To Radio Page', async t => {
     await t
         .expect(url()).eql(radioAndCheckboxPageHref)
         .expect(radioAndCheckboxPageRepo.h1RadioAndCheckBox.visible).ok()
+})
+
+test('User Can Navigate To Windows Page', async t => {
+    const windowsPageHref = 'https://letcode.in/windows'
+
+    await testPageRepo.navigateToWindowsPage()
+
+    const url = ClientFunction(() => window.location.href)
+
+    await t
+        .expect(url()).eql(windowsPageHref)
+        .expect(windowsPageRepo.h1Windows.visible).ok()
 })

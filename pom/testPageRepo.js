@@ -9,6 +9,7 @@ class testPageRepo {
         this.btnAlert = Selector('a').withText('Dialog')
         this.btnFrame = Selector('a').withText('Inner HTML')
         this.btnRadio = Selector('a').withText('Toggle')
+        this.btnTabs = Selector('a').withText('Tabs')
     }
 
     async navigateToEditPage() {
@@ -39,6 +40,11 @@ class testPageRepo {
     async navigateToRadioAndCheckboxPage() {
         await t
             .click(this.btnRadio)
+    }
+
+    async navigateToWindowsPage() {
+        await t
+            .click(this.btnTabs)
     }
 }
 

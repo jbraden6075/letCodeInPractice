@@ -53,3 +53,10 @@ test('Verify Remember Me Checkbox is Checked', async t => {
     await t
         .expect(radioAndCheckboxPageRepo.checkboxRememberMe.checked).ok()
 })
+
+test('User Can Select a Checkbox', async t => {
+    await radioAndCheckboxPageRepo.selectCheckbox(radioAndCheckboxPageRepo.checkboxTC)
+
+    await t
+        .expect(radioAndCheckboxPageRepo.checkboxTC.checked).ok()
+})

@@ -9,6 +9,7 @@ class radioAndCheckboxPageRepo {
         this.radOnlyOneNo = Selector('#two')
         this.radFoo = Selector('#foo')
         this.radBar = Selector('#notfoo')
+        this.radMaybe = Selector('#maybe')
     }
 }
 

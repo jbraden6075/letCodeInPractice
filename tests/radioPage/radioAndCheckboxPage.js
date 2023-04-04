@@ -37,3 +37,14 @@ test('TestCafe Can Find Which Radio Button Is Selected', async t => {
         .expect(selected).eql(1)
         .expect(unselected).eql(0)
 })
+
+test('Verify Last Radio Button Is Disabled', async t => {
+    let disabledFound = 0
+
+    if(radioAndCheckboxPageRepo.radMaybe.hasAttribute('disabled')) {
+        disabledFound = 1
+    }
+
+    await t
+        .expect(disabledFound).eql(1)
+})

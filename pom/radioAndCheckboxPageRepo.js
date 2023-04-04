@@ -1,4 +1,4 @@
-import { Selector } from 'testcafe'
+import { Selector, t } from 'testcafe'
 
 
 class radioAndCheckboxPageRepo {
@@ -11,6 +11,12 @@ class radioAndCheckboxPageRepo {
         this.radBar = Selector('#notfoo')
         this.radMaybe = Selector('#maybe')
         this.checkboxRememberMe = Selector('label').withText(' Remember me').child('input')
+        this.checkboxTC = Selector('label').withText(' I agree to the FAKE terms and conditions').child('input')//.withAttribute('type', 'checkbox')
+    }
+
+    async selectCheckbox(element) {
+        await t
+            .click(element)
     }
 }
 

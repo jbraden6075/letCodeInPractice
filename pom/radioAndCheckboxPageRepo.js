@@ -10,6 +10,7 @@ class radioAndCheckboxPageRepo {
         this.radFoo = Selector('#foo')
         this.radBar = Selector('#notfoo')
         this.radMaybe = Selector('#maybe')
+        this.checkboxRememberMe = Selector('label').withText(' Remember me').child('input')
     }
 }
 

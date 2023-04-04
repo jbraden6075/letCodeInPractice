@@ -48,3 +48,8 @@ test('Verify Last Radio Button Is Disabled', async t => {
     await t
         .expect(disabledFound).eql(1)
 })
+
+test('Verify Remember Me Checkbox is Checked', async t => {
+    await t
+        .expect(radioAndCheckboxPageRepo.checkboxRememberMe.checked).ok()
+})
